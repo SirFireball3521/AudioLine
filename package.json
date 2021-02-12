@@ -9,6 +9,7 @@
   "author": "SirFireball",
   "license": "GPL-3.0-or-later",
   "dependencies": {
+    "audic": "^2.0.0",
     "blessed": "^0.1.81",
     "fluent-ffmpeg": "^2.1.2",
     "node-mp3-player": "^1.0.3",
