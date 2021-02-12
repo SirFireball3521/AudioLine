@@ -1,0 +1,17 @@
+{
+  "name": "audioline",
+  "version": "1.0.0",
+  "description": "Command line music player",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "SirFireball",
+  "license": "GPL-3.0-or-later",
+  "dependencies": {
+    "blessed": "^0.1.81",
+    "fluent-ffmpeg": "^2.1.2",
+    "node-mp3-player": "^1.0.3",
+    "ytdl-core": "^4.4.5"
+  }
+}
