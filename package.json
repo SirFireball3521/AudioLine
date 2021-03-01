@@ -11,6 +11,7 @@
   "dependencies": {
     "audic": "^2.0.0",
     "blessed": "^0.1.81",
+    "colors": "^1.4.0",
     "fluent-ffmpeg": "^2.1.2",
     "node-mp3-player": "^1.0.3",
     "ytdl-core": "^4.4.5"
