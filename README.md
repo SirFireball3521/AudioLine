@@ -6,7 +6,7 @@ Still in very early beta, if you're seeing this I either sent you the link or yo
 ## Installation
 Dependencies: Node.js.
 
-Clone the repository, enter the folder and run ``npm test`. 
+Clone the repository, enter the folder and run `npm test`. 
 
 ## Usage
 This program has a temporary CLI at the moment. Upon running the program run `help` to see possible commands.
