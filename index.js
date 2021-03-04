@@ -10,8 +10,16 @@ const rl = readline.createInterface({
    output: process.stdout
 });
 
+let songs;
 
-
+fs.readFile('songs.json', (err, data)=>{
+   if(err){
+      console.error(err)
+      return;
+   }else{
+      songs=JSON.parse(data)
+   }
+})
 let currentSong = new Audic();
 
 const helpMsg = `List of commands:
@@ -33,10 +41,7 @@ rl.on('line', (input) => {
          break;
 
       case 'play':
-
-         currentSong.src = "songs/" + input[1] + ".mp3";
-         currentSong.play();
-         console.log("Now playing: " + input[1]);
+         playSong(input[1]);
          break;
 
       case 'pause':
@@ -46,10 +51,22 @@ rl.on('line', (input) => {
       case 'resume':
          currentSong.play();
          break;
-
+      case 'exit':
+         process.exit(0);
       default:
          console.log("Unexpected item in the bagging area");
          break;
    }
    rl.prompt('>');
 })
+
+function playSong(sName) {
+   currentSong.pause()
+   if(songs[sName]) {
+      currentSong = new Audic(songs[sName].path);
+      console.log('song set to:' + songs[sName].path);
+   } else {
+      console.error('song does not exist');
+   }
+   currentSong.play();
+}
