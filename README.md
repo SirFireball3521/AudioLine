@@ -6,9 +6,11 @@ Still in very early beta, if you're seeing this I either sent you the link or yo
 ## Installation
 Dependencies: Node.js, npm
 
-Clone the repository, enter the folder and run `npm test`. 
-
+Just clone the repository
 ## Usage
+
+Enter the folder and run `node index.js cli`. Running it without the cli option will do practically nothing, the gui is coming soon. 
+
 This program has a temporary CLI at the moment. Upon running the program run `help` to see possible commands.
 
 ### Adding songs
