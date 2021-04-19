@@ -326,7 +326,7 @@ if (isCLI) {
          case 'k':
             selectedElement++
             if (currentBox == 0) {
-               selectedElement = Math.min(Object.keys(songs).length, selectedElement);
+               selectedElement = Math.min(Object.keys(songs).length - 1, selectedElement);
                songBoxes[selectedElement].focus();
             } else if (currentBox == 2) {
                selectedElement = Math.min(queue.itemboxes.length - 1, selectedElement);
