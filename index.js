@@ -43,7 +43,7 @@ let queue = {
    completionCheck() {
       if (!pauseInc) {
          songTime++
-         updateSongInfo();
+         if(!isCLI)updateSongInfo();
          if (songTime >= queue.items[0].duration) {
             if (queue.items.length != 1) {
                if (isCLI) rl.write(`playing next song: ${queue.items[1].name}\n>`); //error is fine.
