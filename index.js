@@ -30,7 +30,7 @@ queue <command>   | See queue help.
 updatejson        | Updates your library to include any mp3 files added to the songs directory`.green;
 
 const isCLI = (process.argv[2] === 'cli') //check for CLI mode
-var currentVolume = 100; //0 - 100, as a percentage. Remember to divide by 100 for the audic.
+var currentVolume = 50; //0 - 100, as a percentage. Remember to divide by 100 for the audic.
 var songBoxes = new Array(Object.keys(songs).length);
 var songTime = 0; //the Audic currentTime is not consistent, so I'm using my own.
 var pauseInc = false;
@@ -55,6 +55,7 @@ let queue = {
                if (isCLI) {
                   console.log('queue complete')
                } else {
+                  queue.draw()
                   renderCenter();
                }
                clearInterval(queue.checkIntervalID);
@@ -304,11 +305,14 @@ if (isCLI) {
             break;
          case 'up':
          case 'j':
-            selectedElement--
+            
             if (currentBox == 0) {
+               selectedElement--
                selectedElement = Math.max(0, selectedElement)
                songBoxes[selectedElement].focus();
             } else if (currentBox == 2) {
+               selectedElement--
+               if(selectedElement === 0)queueBox.resetScroll()
                selectedElement = Math.max((quMode ? 0 : 1), selectedElement)
                queue.itemboxes[selectedElement].focus();
             } else {
@@ -367,12 +371,13 @@ if (isCLI) {
             renderCenter();
             break;
          case 'e':
+            if (queue.items.length === 0) break;
             queue.skip();
             queue.draw();
             renderCenter();
             break;
          case 's':
-            if (currentBox === 2 && screen.focused != queueBox) {
+            if (currentBox === 2 && screen.focused != queueBox && !quMode) {
                for (let i = 0; i < selectedElement; i++) queue.next();
                playSong();
                queue.draw();
@@ -384,7 +389,7 @@ if (isCLI) {
             }
             break;
          case 'x':
-            if (currentBox === 2 && screen.focused != queueBox) {
+            if (currentBox === 2 && screen.focused != queueBox && !quMode) {
                queue.items.splice(selectedElement, 1);
                queue.itemboxes[selectedElement].focus();
                queue.draw();
@@ -698,6 +703,7 @@ function fixJson(ignoreExisting) {
          for (song in newSongs) {
             song = newSongs[song].substring(0, newSongs[song].length - 4); //remove '.mp3'
             songs[song] = {
+               name: song,
                path: `songs/${song}.mp3`,
                duration: await mp3Duration(`songs/${song}.mp3`)
             }
