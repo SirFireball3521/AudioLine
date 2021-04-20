@@ -6,10 +6,14 @@ Note that this is in beta, and many things either do not exist or are non-functi
 # Installation
 Dependencies: Node.js, npm.
 
-Just clone the repository. The `songs` directory will be empty on download, you can add .mp3 files into it. See "Adding songs" for more info  .
+This is available as an npm package.
+
+Just clone the repository. The `songs` directory will be empty on download, you can add .mp3 files into it. See "Adding songs" for more info.
+
+
 # Usage
 
-Enter the folder and run `node index.js`. (you can access the command line version by running `node index.js cli`, but some parts of this are currently broken)
+Run `npm run audioline` (or `npm run audioline-cli` for command line version)
 I recommend using a fullscreen terminal for this.
 
 Controls use either hjkl or arrow keys for movement.

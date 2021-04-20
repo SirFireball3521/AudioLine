@@ -1,11 +1,11 @@
 {
   "name": "audioline",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Command line music player",
   "main": "index.js",
   "scripts": {
-    "test": "node index.js",
-    "aL-CLI": "node index.js cli"
+    "audioline": "node index.js",
+    "audioline-cli": "node index.js cli"
   },
   "author": "SirFireball",
   "license": "GPL-3.0-or-later",
@@ -14,9 +14,6 @@
     "audic": "^2.0.0",
     "cfonts": "^2.9.1",
     "colors": "^1.4.0",
-    "fluent-ffmpeg": "^2.1.2",
-    "mp3-duration": "^1.1.0",
-    "node-mp3-player": "^1.0.3",
-    "ytdl-core": "^4.4.5"
+    "mp3-duration": "^1.1.0"
   }
 }
